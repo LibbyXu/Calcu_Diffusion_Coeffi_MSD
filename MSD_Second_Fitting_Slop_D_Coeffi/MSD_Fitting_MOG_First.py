@@ -1,8 +1,7 @@
-#This script deal with plotting the 12_water_2_proton_in_between_MO_G MSD total, projected to XY plane and Z direction
 import numpy as np
 import math
 
-start_point=1000 # As of total points num is 15000
+start_point=1000 #As of total points num is 15000, you can modify
 real_strat=start_point-1 # python start from 0
 
 #load the three files
@@ -22,8 +21,7 @@ for nn in range(start_point,len_all):
 fitting_int=np.zeros(shape=(len_all-start_point,4))
 for uu in range(start_point,len_all):
     fitting_int[uu-start_point,0]=data_total[uu,0]
-
-
+	
 ############################################
 #fitting total data
 ############################################
@@ -47,7 +45,6 @@ for i in range(start_point,len_all):
     ss_tot=np.sum((y_temp-np.mean(y_temp))**2)
     r_squared_temp = 1 - (ss_res / ss_tot)
     fitting_para[i-start_point,2]=r_squared_temp
-
 
 ############################################
 #fitting xy-plane data
@@ -141,11 +138,10 @@ fig.savefig('RDC_T_water_O_msd_WHOLE.png', dpi=300)
 ################################################
 #grab all R-square value > 0.8 step out
 ################################################
-
 aa=0
 time_period_pre=np.zeros(shape=(len_all-start_point,7))
 for ii in range(0,len_all-start_point):
-    if fitting_para[ii,2]>=0.8: #Here, I define, the slop larger than 0.8 will be used
+    if fitting_para[ii,2]>=0.8: #Here, I define, the slop larger than 0.8 will be used, you can modify
         time_period_pre[aa,0:7]=fitting_para[ii,0:7]
         aa=aa+1
 
@@ -166,22 +162,4 @@ for mm in range(0,len_better):
         
 np.savetxt('better_time_period_total_MSD_0.8.dat', time_period_better, delimiter = '   ')
 #the file was saved using the fs as the first column,the last column is the ps
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

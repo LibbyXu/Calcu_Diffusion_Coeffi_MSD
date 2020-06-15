@@ -1,5 +1,3 @@
-#We need to spicify the time (fs) start and the time end (fs)
-#why using fs, as it is integer
 import numpy as np
 import math
 
@@ -7,15 +5,14 @@ import math
 #set_variables 
 ###################################
 #the two time value are the fs in the first column
-start_time=1500
-end_time=4500
+start_time=1500 #You can modify
+end_time=4500  #You can modify
 #load the file
 data_file=np.genfromtxt('better_time_period_total_MSD_0.8.dat',delimiter='')
 
 ################################################
 #grab the corresponding period of time
 ################################################
-
 len_file=len(data_file[:,0])
 line_se=[]
 for line in range(0,len_file):
@@ -31,9 +28,6 @@ for row in range(0,len_new_file):
     corr_data[row,:]=data_file[line_se[0]+row,0:7]
 
 np.savetxt('calcu_diffucion_coeff.dat', corr_data, delimiter = '   ')
-
-
-
 print('\nFor protons:')
 
 #Total
@@ -76,14 +70,4 @@ averaged_diffusion_coeffi_z=averaged_diffusion_coeffi_temp_z
 #As it is easier to track the proton binded O not the proton
 print("The corresponding averaged diffusion coefficient is {}. (unit:10**-9 m^2/s)".format(averaged_diffusion_coeffi_z))
 print("The corresponding standard deviation is {}. (unit:10**-9 m^2/s)".format(var_Z))
-
-
-
-
-
-
-
-
-
-
 

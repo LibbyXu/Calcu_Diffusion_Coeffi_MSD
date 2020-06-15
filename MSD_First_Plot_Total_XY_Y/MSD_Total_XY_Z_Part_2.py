@@ -1,9 +1,7 @@
-#This script deal with plotting the 12_water_2_proton_in_between_MO_G MSD total, projected to XY plane and Z direction
 import numpy as np
 import math
 
 #get rid of the first 4 lines
-
 ##import glob 
 ##myfiles = glob.glob('*.dat') 
 ##for file in myfiles: 
@@ -56,7 +54,4 @@ figgca.tick_params(width=1.2)
 fig=plt.gcf()
 fig.set_size_inches(5, 5)
 fig.show()
-#fig.savefig('Proton_binded_O_msd_WHOLE.png', dpi=300)	
-fig.savefig('MO_G_12_water_Proton_binded_O_msd.png', dpi=300)
-
-
+fig.savefig('figure2.png', dpi=300)
